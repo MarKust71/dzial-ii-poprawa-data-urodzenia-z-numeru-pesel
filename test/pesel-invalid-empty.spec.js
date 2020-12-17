@@ -1,4 +1,4 @@
-const majorityFromPesel = require('../gender-from-pesel');
+const majorityFromPesel = require('../majority-from-pesel');
 
 describe('(5 punktów) Invalid PESEL - empty string', () => {
     ['', '     ', '           ', '             '].map((givenPesel) => {

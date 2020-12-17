@@ -1,4 +1,4 @@
-const genderFromPesel = require('../gender-from-pesel');
+const genderFromPesel = require('../majority-from-pesel');
 
 describe('(5 punktów) Invalid PESEL - too short', () => {
     ['123', '12345', '6511051174'].map((givenPesel) => {
