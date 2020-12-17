@@ -1,18 +1,18 @@
 {
-  "name": "@coderscamp2020/zadanie-javascript-peselplec",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "jest",
-    "test:pesel:female": "jest -- test/pesel-female.spec.js",
-    "test:pesel:male": "jest -- test/pesel-male.spec.js",
-    "test:pesel:invalid-longer": "jest -- test/pesel-invalid-longer.spec.js",
-    "test:pesel:invalid-shorter": "jest -- test/pesel-invalid-shorter.spec.js",
-    "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "jest": "^26.4.2"
-  }
+    "name": "@coderscamp2020/zadanie-javascript-peselplec",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "jest",
+        "test:pesel:major": "jest -- test/pesel-major.spec.js",
+        "test:pesel:minor": "jest -- test/pesel-minor.spec.js",
+        "test:pesel:invalid-longer": "jest -- test/pesel-invalid-longer.spec.js",
+        "test:pesel:invalid-shorter": "jest -- test/pesel-invalid-shorter.spec.js",
+        "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^26.4.2"
+    }
 }
