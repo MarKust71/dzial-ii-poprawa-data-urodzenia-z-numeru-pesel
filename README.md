@@ -31,9 +31,11 @@ Niestety, w projektach informatycznych oprócz działania programu ważne są ta
 Pamiętaj, że umowa z klientem zobowiązuje nas do zmieszczenia się w wyznaczonym czasie (40 minut).
 Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej.
 
-1. Funkcja majorityFromPesel zwraca string `"MINOR"`, jeśli PESEL dotyczy osoby niepełnoletniej. **(Wycena: 10$)**
-2. Funkcja majorityFromPesel zwraca string `"MAJOR"`, jeśli PESEL dotyczy osoby pełnoletniej. **(Wycena: 10$)**
-3. Jeśli podany do funkcji majorityFromPesel parametr, to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
+1. Osoba pełnoletnia to taka, dla której od dnia urodzin minęło 18 pełnych lat (czyli osoba urodzona 10-09-1971 osiąga pełnoletność
+   w dniu 10-09-1989))
+2. Funkcja majorityFromPesel zwraca string `"NONADULT"`, jeśli PESEL dotyczy osoby niepełnoletniej. **(Wycena: 10$)**
+3. Funkcja majorityFromPesel zwraca string `"ADULT"`, jeśli PESEL dotyczy osoby pełnoletniej. **(Wycena: 10$)**
+4. Jeśli podany do funkcji majorityFromPesel parametr, to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
    Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
    Sprawdzamy jedynie liczbę znaków w podanym stringu. Nie weryfikujemy czy cały PESEL jest poprawnie skonstruowany.
    **(Wycena: 15$)**
@@ -43,8 +45,8 @@ Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej
 Przykłady działania funkcji:
 
 ```js
-majorityFromPesel("89090132712") returns "MAJOR"
-majorityFromPesel("05301791241") returns "MINOR"
+majorityFromPesel("89090132712") returns "ADULT"
+majorityFromPesel("05301791241") returns "NONADULT"
 majorityFromPesel("123") throws Error("123 is not valid PESEL number!")
 ```
 
@@ -79,6 +81,6 @@ a u mężczyzny - nieparzysta (1, 3, 5, 7, 9),
 K – to cyfra kontrolna.
 
 Przykład: PESEL **11220**3PPP**6**K należy do kobiety,
-która urodziła się 3 lutego 2011 roku,
+która urodziła się 3 lutego 2011 roku - **nie jest pełnoletnia**,
 a PESEL **761115**PPP**3**K - do mężczyzny,
-który urodził się 15 listopada 1976 roku.
+który urodził się 15 listopada 1976 roku - **jest pełnoletni**.
