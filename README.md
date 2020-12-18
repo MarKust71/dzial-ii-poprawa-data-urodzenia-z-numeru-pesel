@@ -12,12 +12,12 @@ Dlatego, kiedy uznasz zadanie za zakończone, już nic nie zmieniaj. Upewnij si�
 
 #### ⏰ Czas na wykonanie: 40 minut
 
-W pliku `majority-from-pesel.js` uzupełnij implementację funkcji majorityFromPesel,
+W pliku `dateofbirth-from-pesel.js` uzupełnij implementację funkcji majorityFromPesel,
 która będzie przyjmowała jeden parametr wejściowy.
 Załóż, że podana do funkcji wartość zawsze będzie typu `string`.
 Nie będziemy sprawdzać liczb, obiektów itp.
 
-Do wykonania zadania wykorzystaj wiedzę domenową nt. numeru pesel, ze strony Gov.pl
+Do wykonania zadania wykorzystaj wiedzę domenową nt. numeru pesel ze strony Gov.pl
 Potrzebna treść strony została podana na końcu zadania.
 
 ### 🚀 Wyzwania stojące przed Tobą
@@ -31,22 +31,24 @@ Niestety, w projektach informatycznych oprócz działania programu ważne są ta
 Pamiętaj, że umowa z klientem zobowiązuje nas do zmieszczenia się w wyznaczonym czasie (40 minut).
 Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej.
 
-1. Osoba pełnoletnia to taka, dla której od dnia urodzin minęło 18 pełnych lat (czyli osoba urodzona 10-09-1971 osiąga pełnoletność
-   w dniu 10-09-1989))
-2. Funkcja majorityFromPesel zwraca string `"NONADULT"`, jeśli PESEL dotyczy osoby niepełnoletniej. **(Wycena: 10$)**
-3. Funkcja majorityFromPesel zwraca string `"ADULT"`, jeśli PESEL dotyczy osoby pełnoletniej. **(Wycena: 10$)**
-4. Jeśli podany do funkcji majorityFromPesel parametr, to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
+1. Funkcja dateofbirthFromPesel zwraca string zawierajct datę urodzenia w formacie `"RRRR-MM-DD"`. **(Wycena: 15$)**
+2. Jeśli podany do funkcji dateofbirthFromPesel parametr to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
    Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
    Sprawdzamy jedynie liczbę znaków w podanym stringu. Nie weryfikujemy czy cały PESEL jest poprawnie skonstruowany.
-   **(Wycena: 15$)**
+   **(Wycena: 10$)**
+3. Jeśli podany do funkcji dateofbirthFromPesel parametr to nie **pusty string albo string zawierający jedynie spacje**, wtedy należy rzucić wyjątek (Error).
+   Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
+   **(Wycena: 5$)**
+4. Jeśli odkodowany z numeru PESEL numer miesiąca nie mieści się w zakresie 1 do 12, należy rzucić wyjątek (error).
+   Treść wiadomości w wyjątku musi być następująca: `"There is an invalid month in PESEL: XXX`. **(Wycena: 5$)**
 
 **Całość**: 35$ + opóźnienie (-1$ \* każda rozpoczęta minuta po czasie)
 
 Przykłady działania funkcji:
 
 ```js
-majorityFromPesel("89090132712") returns "ADULT"
-majorityFromPesel("05301791241") returns "NONADULT"
+majorityFromPesel("89090132712") returns "1989-09-01"
+majorityFromPesel("05301791241") returns "2005-10-17"
 majorityFromPesel("123") throws Error("123 is not valid PESEL number!")
 ```
 
@@ -81,6 +83,6 @@ a u mężczyzny - nieparzysta (1, 3, 5, 7, 9),
 K – to cyfra kontrolna.
 
 Przykład: PESEL **11220**3PPP**6**K należy do kobiety,
-która urodziła się 3 lutego 2011 roku - **nie jest pełnoletnia**,
+która urodziła się 3 lutego 2011 roku,
 a PESEL **761115**PPP**3**K - do mężczyzny,
-który urodził się 15 listopada 1976 roku - **jest pełnoletni**.
+który urodził się 15 listopada 1976 roku.

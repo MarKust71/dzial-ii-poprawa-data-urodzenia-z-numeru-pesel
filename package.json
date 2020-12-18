@@ -4,11 +4,11 @@
     "description": "",
     "scripts": {
         "test": "jest",
-        "test:pesel:major": "jest -- test/pesel-major.spec.js",
-        "test:pesel:minor": "jest -- test/pesel-minor.spec.js",
+        "test:pesel:dateofbirth": "jest -- test/pesel-dateofbirth.spec.js",
         "test:pesel:invalid-longer": "jest -- test/pesel-invalid-longer.spec.js",
         "test:pesel:invalid-shorter": "jest -- test/pesel-invalid-shorter.spec.js",
-        "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js"
+        "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js",
+        "test:pesel:invalid-badmonth": "jest -- test/pesel-invalid-badmonth.spec.js"
     },
     "author": "",
     "license": "ISC",
