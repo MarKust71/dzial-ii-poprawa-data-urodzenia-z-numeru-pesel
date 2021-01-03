@@ -12,7 +12,7 @@ Dlatego, kiedy uznasz zadanie za zakończone, już nic nie zmieniaj. Upewnij si�
 
 #### ⏰ Czas na wykonanie: 40 minut
 
-W pliku `dateofbirth-from-pesel.js` uzupełnij implementację funkcji majorityFromPesel,
+W pliku `dateofbirth-from-pesel.js` uzupełnij implementację funkcji dateOfBirthFromPesel,
 która będzie przyjmowała jeden parametr wejściowy.
 Załóż, że podana do funkcji wartość zawsze będzie typu `string`.
 Nie będziemy sprawdzać liczb, obiektów itp.
@@ -47,9 +47,9 @@ Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej
 Przykłady działania funkcji:
 
 ```js
-majorityFromPesel("89090132712") returns "1989-09-01"
-majorityFromPesel("05301791241") returns "2005-10-17"
-majorityFromPesel("123") throws Error("123 is not valid PESEL number!")
+dateOfBirthFromPesel("89090132712") returns "1989-09-01"
+dateOfBirthFromPesel("05301791241") returns "2005-10-17"
+dateOfBirthFromPesel("123") throws Error("123 is not valid PESEL number!")
 ```
 
 Powodzenia, twój zespół liczy na Ciebie!
