@@ -40,7 +40,7 @@ Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej
    Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
    **(Wycena: 5$)**
 4. Jeśli odkodowany z numeru PESEL numer miesiąca nie mieści się w zakresie 1 do 12, należy rzucić wyjątek (error).
-   Treść wiadomości w wyjątku musi być następująca: `"There is an invalid month in PESEL: XXX`. **(Wycena: 5$)**
+   Treść wiadomości w wyjątku musi być następująca: `"There is an invalid month in PESEL: XXX"`. **(Wycena: 5$)**
 
 **Całość**: 35$ + opóźnienie (-1$ \* każda rozpoczęta minuta po czasie)
 
