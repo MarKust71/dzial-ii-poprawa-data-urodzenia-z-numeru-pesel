@@ -8,16 +8,16 @@ Wprowadzenie zmian w tych plikach będzie skutkować uzyskaniem 0 punktów za za
 Twój czas wykonywania zadania to czas pomiędzy opublikowaniem na Discord linku do zadania a dokładną datą Twojego ostatniego commita w repozytorium z zadaniem.
 Dlatego, kiedy uznasz zadanie za zakończone, już nic nie zmieniaj. Upewnij się także na GitHub, że wykonałeś push.
 
-## 🧑‍🤝‍🧑 Zadanie praktyczne — Pełnoletność z numeru PESEL
+## 🧑‍🤝‍🧑 Zadanie praktyczne — Pełny rok z numeru PESEL
 
 #### ⏰ Czas na wykonanie: 40 minut
 
-W pliku `majority-from-pesel.js` uzupełnij implementację funkcji majorityFromPesel,
+W pliku `fullyearofbirth-from-pesel.js` uzupełnij implementację funkcji fullYearOfBirthFromPesel,
 która będzie przyjmowała jeden parametr wejściowy.
 Załóż, że podana do funkcji wartość zawsze będzie typu `string`.
 Nie będziemy sprawdzać liczb, obiektów itp.
 
-Do wykonania zadania wykorzystaj wiedzę domenową nt. numeru pesel, ze strony Gov.pl
+Do wykonania zadania wykorzystaj wiedzę domenową nt. numeru PESEL ze strony Gov.pl
 Potrzebna treść strony została podana na końcu zadania.
 
 ### 🚀 Wyzwania stojące przed Tobą
@@ -29,25 +29,27 @@ Im więcej zadań wykonasz — tym więcej zarobisz dla firmy i osiągniesz leps
 
 Niestety, w projektach informatycznych oprócz działania programu ważne są także ustalone terminy.
 Pamiętaj, że umowa z klientem zobowiązuje nas do zmieszczenia się w wyznaczonym czasie (40 minut).
-Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o 1$ mniej.
+Za każdą rozpoczętą minutę opóźnienia otrzymamy jako zapłatę o $1 mniej.
 
-1. Osoba pełnoletnia to taka, dla której od dnia urodzin minęło 18 pełnych lat (czyli osoba urodzona 10-09-1971 osiąga pełnoletność
-   w dniu 10-09-1989))
-2. Funkcja majorityFromPesel zwraca string `"NONADULT"`, jeśli PESEL dotyczy osoby niepełnoletniej. **(Wycena: 10$)**
-3. Funkcja majorityFromPesel zwraca string `"ADULT"`, jeśli PESEL dotyczy osoby pełnoletniej. **(Wycena: 10$)**
-4. Jeśli podany do funkcji majorityFromPesel parametr, to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
+1. Funkcja fullYearOfBirthFromPesel zwraca string zawierajct pełny rok urodzenia w formacie `"RRRR"`. **(Wycena: $15)**
+2. Jeśli podany do funkcji fullYearOfBirthFromPesel parametr to nie **string zawierający 11 znaków**, wtedy należy rzucić wyjątek (Error).
    Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
    Sprawdzamy jedynie liczbę znaków w podanym stringu. Nie weryfikujemy czy cały PESEL jest poprawnie skonstruowany.
-   **(Wycena: 15$)**
+   **(Wycena: $10)**
+3. Jeśli podany do funkcji fullYearOfBirthFromPesel parametr to **pusty string albo string zawierający jedynie spacje**, wtedy należy rzucić wyjątek (Error).
+   Treść wiadomości w wyjątku musi być następująca `"XXX is not valid PESEL number!"`, gdzie XXX to podany na wejściu do funkcji niepoprawny PESEL
+   **(Wycena: $5)**
+4. Jeśli odkodowany z numeru PESEL numer miesiąca nie mieści się w zakresie 1 do 12, należy rzucić wyjątek (error).
+   Treść wiadomości w wyjątku musi być następująca: `"There is an invalid month in PESEL: XXX"`. **(Wycena: 5$)**
 
-**Całość**: 35$ + opóźnienie (-1$ \* każda rozpoczęta minuta po czasie)
+**Całość**: $35 + opóźnienie (-$1 za każdą rozpoczętą minutę po czasie)
 
 Przykłady działania funkcji:
 
 ```js
-majorityFromPesel("89090132712") returns "ADULT"
-majorityFromPesel("05301791241") returns "NONADULT"
-majorityFromPesel("123") throws Error("123 is not valid PESEL number!")
+fullYearOfBirthFromPesel("89090132712") returns "1989"
+fullYearOfBirthFromPesel("05301791241") returns "2005"
+fullYearOfBirthFromPesel("123") throws Error("123 is not valid PESEL number!")
 ```
 
 Powodzenia, twój zespół liczy na Ciebie!
@@ -68,7 +70,7 @@ Każda z 11 cyfr w numerze PESEL ma swoje znaczenie. Można je podzielić nastę
 
 RRMMDDPPPPK
 
-RR – to 2 ostanie cyfry roku urodzenia,
+RR – to dwie ostanie cyfry roku urodzenia,
 
 MM – to miesiąc urodzenia,
 
@@ -80,7 +82,21 @@ a u mężczyzny - nieparzysta (1, 3, 5, 7, 9),
 
 K – to cyfra kontrolna.
 
-Przykład: PESEL **11220**3PPP**6**K należy do kobiety,
-która urodziła się 3 lutego 2011 roku - **nie jest pełnoletnia**,
+Aby odróżnić od siebie numery PESEL z różnych stuleci, przyjęto następującą metodę oznaczania miesiąca urodzenia:
+
+Dla stulecia 1900-1999 cyfry oznaczające miesiąc odpowiadają naturalnym numerom miesięcy - 01 styczeń, 02 luty itd.,
+np. **710910**PPPPK to PESEL osoby urodzonej 10-09-1971.
+
+Dla stulecia 2000-2099 do numeru miesiąca dodano liczbę 20, czyli dla tego stulecia 21 to styczeń, 22 luty itd.,
+np. **112203**PPPPK to to PESEL osoby urodzonej 3-02-2000.
+
+Dla stulecia 2100-2199 do numeru miesiąca dodano liczbę 40, czyli dla tego stulecia 21 to styczeń, 22 luty itd.
+
+Podobnie ustalono sposób oznaczania miesiąca dla kolejnego stulecia, jednak naturalny numer miesiąca powiększony o 80
+oznacza, że data urodzenia zawarta w numerze PESEL dotyczy stulecia 1800-1899,
+np. **679205**PPPPK to to PESEL osoby urodzonej 5-12-1867.
+
+Przykład: PESEL **112203**PPP**6**K należy do kobiety,
+która urodziła się w 2011 roku,
 a PESEL **761115**PPP**3**K - do mężczyzny,
-który urodził się 15 listopada 1976 roku - **jest pełnoletni**.
+który urodził w 1976 roku.

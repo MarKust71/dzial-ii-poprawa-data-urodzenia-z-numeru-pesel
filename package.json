@@ -1,18 +1,18 @@
 {
-    "name": "@coderscamp2020/zadanie-javascript-peselpelnoletnosc",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-        "test": "jest",
-        "test:pesel:major": "jest -- test/pesel-major.spec.js",
-        "test:pesel:minor": "jest -- test/pesel-minor.spec.js",
-        "test:pesel:invalid-longer": "jest -- test/pesel-invalid-longer.spec.js",
-        "test:pesel:invalid-shorter": "jest -- test/pesel-invalid-shorter.spec.js",
-        "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "jest": "^26.4.2"
-    }
+  "name": "@coderscamp2020/zadanie-javascript-peselpelnoletnosc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest",
+    "test:pesel:fullyearofbirth": "jest -- test/pesel-fullyearofbirth.spec.js",
+    "test:pesel:invalid-wrongmonth": "jest -- test/pesel-invalid-wrongmonth.spec.js",
+    "test:pesel:invalid-longer": "jest -- test/pesel-invalid-longer.spec.js",
+    "test:pesel:invalid-shorter": "jest -- test/pesel-invalid-shorter.spec.js",
+    "test:pesel:invalid-empty": "jest -- test/pesel-invalid-empty.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
 }
