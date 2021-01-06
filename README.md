@@ -90,7 +90,7 @@ np. **710910**PPPPK to PESEL osoby urodzonej 10-09-1971.
 Dla stulecia 2000-2099 do numeru miesiąca dodano liczbę 20, czyli dla tego stulecia 21 to styczeń, 22 luty itd.,
 np. **112203**PPPPK to to PESEL osoby urodzonej 3-02-2000.
 
-Dla stulecia 2100-2199 do numeru miesiąca dodano liczbę 40, czyli dla tego stulecia 21 to styczeń, 22 luty itd.
+Dla stulecia 2100-2199 do numeru miesiąca dodano liczbę 40, czyli dla tego stulecia 41 to styczeń, 42 luty itd.
 
 Podobnie ustalono sposób oznaczania miesiąca dla kolejnego stulecia, jednak naturalny numer miesiąca powiększony o 80
 oznacza, że data urodzenia zawarta w numerze PESEL dotyczy stulecia 1800-1899,
